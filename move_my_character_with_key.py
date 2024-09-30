@@ -5,7 +5,7 @@ tukorea = load_image('TUK_GROUND.png')
 character = load_image('character_sheet.png')
 
 def handle_events():
-    global move, dir
+    global move, dir_x, dir_y
 
     events = get_events()
     for event in events:
@@ -13,11 +13,17 @@ def handle_events():
             move = False
         elif event.type == SDL_KEYDOWN:
             if event.key == SDLK_RIGHT:
-                dir += 1
+                dir_x += 1
             elif event.key == SDLK_LEFT:
-                dir -= 1
+                dir_x -= 1
             elif event.key == SDLK_UP:
-                pass
+                dir_y += 1
+            elif event.key == SDLK_DOWN:
+                dir_y -= 1
+            elif event.key == SDLK_ESCAPE:
+                move = False
+        elif event.type == SDL_KEYUP:
+            pass
 
 
 
